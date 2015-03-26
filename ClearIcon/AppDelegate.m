@@ -23,7 +23,7 @@
 - (id)init{
     self = [super init];
     if (self){
-        exeption = [[NSArray arrayWithObjects:@"app",@"volume",@"Unix executable",nil]retain];
+        exeption = [[NSArray arrayWithObjects:@"app",@"public.volume",@"public.unix-executable",nil]retain];
     }
     return self;
 }
@@ -56,17 +56,10 @@
         NSMutableString *ext = [NSMutableString stringWithString:[[path pathExtension]lowercaseString]];
         if ([ext isEqualToString:@""]) {
             NSString *uti = [ws typeOfFile:path error:nil];
-            /*formatはnull値によるエラー回避*/
-            NSString *fType = [NSString stringWithFormat:@"%@",[ws localizedDescriptionForType:uti]];
-            [ext setString:fType];
+            [ext setString:uti];
         }
         NSImage *img = [ws iconForFile:path];
-        NSImage *typeImg;
-        if ([ext isEqualToString:@"folder"]) {
-            typeImg = [NSImage imageNamed:@"NSFolder"];
-        } else {
-            typeImg = [ws iconForFileType:ext];
-        }
+        NSImage *typeImg = [ws iconForFileType:ext];
         [imgIcn setImage:img];
         if ([exeption indexOfObject:ext]==NSNotFound) {
             [imgTypIcn setImage:typeImg];
