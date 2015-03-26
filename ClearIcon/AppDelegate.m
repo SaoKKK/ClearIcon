@@ -70,7 +70,7 @@
         [imgIcn setImage:img];
         if ([exeption indexOfObject:ext]==NSNotFound) {
             [imgTypIcn setImage:typeImg];
-            //[[NSWorkspace sharedWorkspace] setIcon:typeImg forFile:path options:0];
+            //[ws setIcon:typeImg forFile:path options:0];
         } else {
             [imgTypIcn setImage:nil];
         }
