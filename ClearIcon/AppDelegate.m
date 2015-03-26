@@ -11,7 +11,6 @@
 @interface AppDelegate (){
     IBOutlet NSImageView *imgIcn;
     IBOutlet NSImageView *imgTypIcn;
-    IBOutlet NSImageView *imgSrc;
 }
 
 @property (strong) IBOutlet NSWindow *window;
